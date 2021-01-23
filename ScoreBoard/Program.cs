@@ -49,6 +49,7 @@ namespace ScoreBoard
             {
                 Console.WriteLine(e.ToString());
             }
+            Console.WriteLine();
         }
     }
 }
