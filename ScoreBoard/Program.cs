@@ -1,5 +1,6 @@
 ﻿using ScoreBoard.Models;
 using System;
+using System.Collections.Generic;
 
 namespace ScoreBoard
 {
@@ -29,17 +30,25 @@ namespace ScoreBoard
             board.Start(event5);
             board.Update(event5.Id, 3, 1);
 
-            Console.WriteLine(board.GetSummary());
+            WriteToConsole(board.GetSummary());
 
             var event6 = new Event("Ukraine", "England");
             board.Start(event6);
             board.Update(event6.Id, 7, 7);
 
-            Console.WriteLine(board.GetSummary());
+            WriteToConsole(board.GetSummary());
 
             board.Finish(event6.Id);
 
-            Console.WriteLine(board.GetSummary());
+            WriteToConsole(board.GetSummary());
+        }
+
+        private static void WriteToConsole(List<Event> events)
+        {
+            foreach (var e in events)
+            {
+                Console.WriteLine(e.ToString());
+            }
         }
     }
 }

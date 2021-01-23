@@ -47,17 +47,9 @@ namespace ScoreBoard.Models
             return e;
         }
 
-        public string GetSummary()
+        public List<Event> GetSummary()
         {
-            var orderedEvents = Events.OrderByDescending(e => e.HomeTeamScore + e.AwayTeamScore).ThenByDescending(e => e.Id).ToList();
-            var summaryStrBuilder = new StringBuilder();
-
-            foreach (var e in orderedEvents)
-            {
-                summaryStrBuilder.AppendLine(e.ToString());
-            }
-
-            return summaryStrBuilder.ToString();
+            return Events.OrderByDescending(e => e.TotalScore).ThenBy(e => e.Id).ToList();
         }
     }
 }

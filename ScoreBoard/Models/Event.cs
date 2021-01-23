@@ -24,6 +24,8 @@ namespace ScoreBoard.Models
         public string AwayTeam { get; }
         public int AwayTeamScore { get; set; }
 
+        public int TotalScore => HomeTeamScore + AwayTeamScore;
+
         public override string ToString()
         {
             return $"{HomeTeam} - {AwayTeam}: {HomeTeamScore} - {AwayTeamScore}";
